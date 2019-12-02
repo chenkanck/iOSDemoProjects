@@ -32,12 +32,22 @@ import CoreImage
 let dataSourceURL = URL(string:"http://www.raywenderlich.com/downloads/ClassicPhotosDictionary.plist")!
 
 class ListViewController: UITableViewController {
-  lazy var photos = NSDictionary(contentsOf: dataSourceURL)!
+    lazy var photos: NSDictionary = {
+        print("Start download list \(Date())")
+        let t = NSDictionary(contentsOf: dataSourceURL)!
+        return t
+    }()
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    print("view did load \(Date())")
     self.title = "Classic Photos"
   }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("view did appear \(Date())")
+    }
   
   // MARK: - Table view data source
 
