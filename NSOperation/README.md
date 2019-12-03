@@ -5,3 +5,10 @@ Adding dependency among blocks can be a headache. Canceling or suspending a bloc
 
 #### Operation
  adds a little extra overhead compared to GCD, but you can add dependency among various operations and re-use, cancel or suspend them.
+
+
+### ClassicPhoto project
+- Start point: Load Image in main thread
+- Middle point: Encapsulate downloading in NSOperation. 
+- Cancelling off-screen downloading.
+
